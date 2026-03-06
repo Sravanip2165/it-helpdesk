@@ -15,6 +15,7 @@ const incidentRoutes  = require('./routes/incidentRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const chatbotRoutes = require('./routes/chatbotRoutes');
 const reportRoutes = require('./routes/reportRoutes');
+
 // Connect to MongoDB
 connectDB();
 
@@ -24,10 +25,10 @@ const server = http.createServer(app);
 // Socket.io setup
 const io = new Server(server, {
   cors: {
-  origin: ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000', 'https://it-helpdesk-ifu2zo9jy-sravanip2165-9382s-projects.vercel.app'],
-  methods: ['GET', 'POST'],
-  credentials: true,
-},
+    origin: ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000', 'https://it-helpdesk-ifu2zo9jy-sravanip2165-9382s-projects.vercel.app'],
+    methods: ['GET', 'POST'],
+    credentials: true,
+  },
 });
 
 // Make io accessible in routes
@@ -36,13 +37,11 @@ app.set('io', io);
 io.on('connection', (socket) => {
   console.log('🔌 Client connected:', socket.id);
 
-  // Join a room per incident
   socket.on('join_incident', (incidentId) => {
     socket.join(incidentId);
     console.log(`Socket ${socket.id} joined incident room: ${incidentId}`);
   });
 
-  // Join user room for personal notifications
   socket.on('join_user', (userId) => {
     socket.join(`user_${userId}`);
     console.log(`Socket ${socket.id} joined user room: user_${userId}`);
@@ -56,7 +55,7 @@ io.on('connection', (socket) => {
 // Middleware
 app.use(helmet());
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000'],
+  origin: ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000', 'https://it-helpdesk-ifu2zo9jy-sravanip2165-9382s-projects.vercel.app'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
