@@ -42,7 +42,7 @@ export default function IncidentDetail() {
 
   const fetchIncident = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/incidents/${id}`, {
+      const res = await axios.get(`https://it-helpdesk-ee86.onrender.com/api/incidents/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setIncident(res.data);
@@ -86,7 +86,7 @@ export default function IncidentDetail() {
     setSending(true);
     try {
       await axios.post(
-        `http://localhost:5000/api/incidents/${id}/comments`,
+        `https://it-helpdesk-ee86.onrender.com/api/incidents/${id}/comments`,
         { text: comment },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -102,7 +102,7 @@ export default function IncidentDetail() {
     setStatusLoad(true);
     try {
       await axios.put(
-        `http://localhost:5000/api/incidents/${id}`,
+        `https://it-helpdesk-ee86.onrender.com/api/incidents/${id}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );

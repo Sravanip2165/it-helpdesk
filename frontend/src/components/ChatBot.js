@@ -37,7 +37,7 @@ export default function ChatBot() {
     setLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/chatbot",
+        "https://it-helpdesk-ee86.onrender.com/api/chatbot",
         { message: userText },
         { headers: { Authorization: "Bearer " + token } }
       );

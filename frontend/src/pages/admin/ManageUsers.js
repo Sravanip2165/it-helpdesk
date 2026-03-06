@@ -55,7 +55,7 @@ export default function ManageUsers() {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/users',{
+      const res = await axios.get('https://it-helpdesk-ee86.onrender.com/api/users',{
         headers:{ Authorization:`Bearer ${token}` }
       });
 
@@ -100,7 +100,7 @@ export default function ManageUsers() {
     setFormError('');
 
     try{
-      await axios.post('http://localhost:5000/api/users',form,{
+      await axios.post('https://it-helpdesk-ee86.onrender.com/api/users',form,{
         headers:{ Authorization:`Bearer ${token}` }
       });
 
@@ -116,7 +116,7 @@ export default function ManageUsers() {
 
   const handleDelete = async(id)=>{
     try{
-      await axios.delete(`http://localhost:5000/api/users/${id}`,{
+      await axios.delete(`https://it-helpdesk-ee86.onrender.com/api/users/${id}`,{
         headers:{ Authorization:`Bearer ${token}` }
       });
 
@@ -129,7 +129,7 @@ export default function ManageUsers() {
 
   const handleRoleChange = async(id,newRole)=>{
     try{
-      await axios.put(`http://localhost:5000/api/users/${id}`,{ role:newRole },{
+      await axios.put(`https://it-helpdesk-ee86.onrender.com/api/users/${id}`,{ role:newRole },{
         headers:{ Authorization:`Bearer ${token}` }
       });
 
@@ -142,7 +142,7 @@ export default function ManageUsers() {
 
   const handleSkillsSave = async(userId,skills)=>{
     try{
-      await axios.put(`http://localhost:5000/api/users/${userId}`,{ skills },{
+      await axios.put(`https://it-helpdesk-ee86.onrender.com/api/users/${userId}`,{ skills },{
         headers:{ Authorization:`Bearer ${token}` }
       });
 

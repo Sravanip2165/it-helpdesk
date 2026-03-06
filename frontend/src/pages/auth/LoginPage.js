@@ -24,7 +24,7 @@ export default function LoginPage() {
     if (!email || !password) { setError('Please enter both email and password.'); return; }
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const res = await axios.post('https://it-helpdesk-ee86.onrender.com/api/auth/login', { email, password });
       dispatch(loginSuccess(res.data));
       const role = res.data.user.role;
       if (role === 'admin')    navigate('/admin/dashboard');

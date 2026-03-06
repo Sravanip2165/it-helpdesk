@@ -45,7 +45,7 @@ export default function AllIncidents() {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/incidents', {
+        const res = await axios.get('https://it-helpdesk-ee86.onrender.com/api/incidents', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setIncidents(Array.isArray(res.data) ? res.data : res.data.incidents || res.data.data || []);

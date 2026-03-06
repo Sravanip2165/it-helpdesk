@@ -67,7 +67,7 @@ export default function CreateIncident() {
     try {
 
       await axios.post(
-        'http://localhost:5000/api/incidents',
+        'https://it-helpdesk-ee86.onrender.com/api/incidents',
         {
           title: form.title,
           description: form.description,

@@ -46,7 +46,7 @@ export default function ManageAssets() {
 
   const fetchAssets = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/assets', {
+      const res = await axios.get('https://it-helpdesk-ee86.onrender.com/api/assets', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAssets(Array.isArray(res.data) ? res.data : res.data.assets || res.data.data || []);
@@ -86,7 +86,7 @@ export default function ManageAssets() {
     setFormLoading(true);
     setFormError('');
     try {
-      await axios.post('http://localhost:5000/api/assets', form, {
+      await axios.post('https://it-helpdesk-ee86.onrender.com/api/assets', form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setShowAdd(false);
@@ -101,7 +101,7 @@ export default function ManageAssets() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/assets/${id}`, {
+      await axios.delete(`https://it-helpdesk-ee86.onrender.com/api/assets/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setShowDelete(null);
@@ -113,7 +113,7 @@ export default function ManageAssets() {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await axios.put(`http://localhost:5000/api/assets/${id}`, { status: newStatus }, {
+      await axios.put(`https://it-helpdesk-ee86.onrender.com/api/assets/${id}`, { status: newStatus }, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMenuOpen(null);

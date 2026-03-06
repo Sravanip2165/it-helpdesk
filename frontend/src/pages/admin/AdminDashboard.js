@@ -64,7 +64,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/dashboard/admin', {
+        const res = await axios.get('https://it-helpdesk-ee86.onrender.com/api/dashboard/admin', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setStats(res.data);

@@ -56,7 +56,7 @@ export default function EngineerDashboard() {
   const [loading,   setLoading]   = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/incidents/assigned', {
+    axios.get('https://it-helpdesk-ee86.onrender.com/api/incidents/assigned', {
       headers: { Authorization: `Bearer ${token}` },
     }).then((res) => {
       const d = Array.isArray(res.data) ? res.data : res.data.incidents || res.data.data || [];

@@ -28,7 +28,7 @@ export default function Reports() {
       if (from) params.from = from;
       if (to) params.to = to;
 
-      const res = await axios.get('http://localhost:5000/api/reports/stats', {
+      const res = await axios.get('https://it-helpdesk-ee86.onrender.com/api/reports/stats', {
         headers: { Authorization: `Bearer ${token}` },
         params,
       });
@@ -50,7 +50,7 @@ export default function Reports() {
     if (from) params.append('from', from);
     if (to) params.append('to', to);
 
-    const url = `http://localhost:5000/api/reports/${type}?${params.toString()}`;
+    const url = `https://it-helpdesk-ee86.onrender.com/api/reports/${type}?${params.toString()}`;
 
     const res = await fetch(url, {
       headers: { Authorization: `Bearer ${token}` },
