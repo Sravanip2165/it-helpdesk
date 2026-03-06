@@ -24,10 +24,10 @@ const server = http.createServer(app);
 // Socket.io setup
 const io = new Server(server, {
   cors: {
-    origin: ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000'],
-    methods: ['GET', 'POST'],
-    credentials: true,
-  },
+  origin: ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000', 'https://it-helpdesk-ifu2zo9jy-sravanip2165-9382s-projects.vercel.app'],
+  methods: ['GET', 'POST'],
+  credentials: true,
+},
 });
 
 // Make io accessible in routes
